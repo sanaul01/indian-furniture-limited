@@ -1,12 +1,13 @@
-import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
+import { Alert, Button, Container, Grid, TextField, Typography, CircularProgress } from '@mui/material';
 import React, { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import useAuth from './../../../../hooks/useAuth';
 
 const Register = () => {
     const [loginData, setLoginData] = useState({})
     // const history = useHistory()
 
-    // const {user, registerUser, isLoding, authError}= useAuth();
+    const {user, registerUser, isLoding, authError}= useAuth();
 
     const handleonBlur= e =>{
         const field = e.target.name;
@@ -22,7 +23,7 @@ const Register = () => {
             return;
         }
 
-        // registerUser(loginData.email, loginData.password,loginData.name, history)
+        registerUser(loginData.email, loginData.password,loginData.name, )
 
         e.preventDefault()
     }
@@ -31,7 +32,7 @@ const Register = () => {
             <Grid container spacing={2}>
                 <Grid item sx={{mt: 8}} xs={12} md={6}>
                 <Typography variant="body1" gutterBottom>Register
-                    { <form onSubmit={handleLogin}>
+                    {!isLoding && <form onSubmit={handleLogin}>
                     <TextField 
                         sx={{width: '75%', m: 1}}
                         id="standard-basic" 
@@ -79,9 +80,9 @@ const Register = () => {
                     </NavLink>
                     {/* ========================= */}
                     </form>}
-                    {/* {isLoding && <CircularProgress />}
+                    {isLoding && <CircularProgress />}
                     {user?.email && <Alert severity="success">Registration successfully!</Alert>}
-                    {authError && <Alert severity="error">{authError}</Alert>} */}
+                    {authError && <Alert severity="error">{authError}</Alert>}
                 </Typography>
                 </Grid>
                 <Grid item sx={{mt: 8}} xs={12} md={6}>

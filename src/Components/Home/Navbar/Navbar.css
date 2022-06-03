@@ -1,0 +1,36 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0;
+    padding: 10px;
+    background: rgb(245, 245, 242);
+    height: 2rem;
+}
+
+.logo>img{
+    width:75px;
+    border-radius: 15px;
+}
+
+.n-link{
+    padding: 5px;
+}
+
+.n-link>*{
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 3rem;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.n-link>*:hover{
+    color: var(--orange);
+}
+
+.contuct{
+    height: 2rem;
+    border: 2px solid orange;
+    border-radius: 25px;
+}
